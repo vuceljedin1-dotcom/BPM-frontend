@@ -1,4 +1,4 @@
-import PingTest from './components/PingTest';
+import { PingTest } from './components/PingTest';
 
 function App() {
   return (
