@@ -1,27 +1,14 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import { useEffect, useState } from "react";
+import api from "../api/axios"; // uses import.meta.env.VITE_API_BASE_URL
 
-const PingTest: React.FC = () => {
-  const [message, setMessage] = useState<string>('Loading...');
+export const PingTest = () => {
+  const [response, setResponse] = useState("");
 
   useEffect(() => {
-    axios
-      .get('https://bpm-api-cipn.onrender.com/ping')
-      .then((response) => {
-        setMessage(response.data);
-      })
-      .catch((error) => {
-        console.error('Error fetching ping:', error);
-        setMessage('Error connecting to API');
-      });
+    api.get("/ping")
+      .then(res => setResponse(res.data))
+      .catch(() => setResponse("Failed to fetch /ping"));
   }, []);
 
-  return (
-    <div className="p-4 bg-gray-100 rounded-xl shadow-md">
-      <h2 className="text-xl font-semibold">API Ping Test</h2>
-      <p className="mt-2 text-blue-600">{message}</p>
-    </div>
-  );
+  return <div>/ping response: {response}</div>;
 };
-
-export default PingTest;
