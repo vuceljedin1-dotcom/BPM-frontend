@@ -1,0 +1,261 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 5%;
+  background-color: #181f1b;
+  color: #e6f4ea;
+  transition: top 0.3s;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 2000;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #7be495;
+}
+
+.navLinks {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+  pointer-events: auto;
+}
+
+.link {
+  color: #b6d9c7;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+  background: none;
+  cursor: pointer;
+  pointer-events: auto;
+}
+
+.link:hover {
+  color: #7be495;
+}
+
+.activeLink {
+  color: #7be495;
+  text-decoration: none; /* Removed underline for selected tab */
+  cursor: pointer;
+  pointer-events: auto;
+  font-weight: 700;
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+}
+
+.bar,
+.barOpen {
+  width: 25px;
+  height: 3px;
+  background-color: #7be495;
+  transition: 0.3s;
+}
+
+/* New flagButton and flagIcon styles */
+.flagButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  min-width: 2.2em;
+  min-height: 2.2em;
+  border-radius: 50%;
+  box-shadow: 0 0 0 0 #7be49500;
+  transition: box-shadow 0.2s, background 0.2s;
+  pointer-events: auto;
+}
+.flagButton:focus, .flagButton:hover {
+  box-shadow: 0 0 0 3px #7be49555;
+  background: #232d28;
+}
+.flagIcon {
+  width: 1.7em;
+  height: 1.7em;
+  border-radius: 50%;
+  display: block;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex;
+  }
+
+  .navLinks {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100vw;
+    background-color: #181f1b;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem 0;
+    text-align: center;
+    transform: translateY(-200%);
+    transition: transform 0.3s ease-in-out;
+    z-index: 2100;
+    pointer-events: none;
+  }
+
+  .showMenu {
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  .flagButton {
+    margin: 0 auto;
+    min-width: 2.5em;
+    min-height: 2.5em;
+  }
+  .flagIcon {
+    width: 2em;
+    height: 2em;
+  }
+}
+
+@media (max-width: 900px) {
+  .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 3000;
+    box-shadow: 0 2px 16px 0 #7be49511;
+    background: #181f1b;
+  }
+  .hamburger {
+    display: flex;
+    position: relative;
+    z-index: 3100;
+    margin-left: auto;
+    margin-right: 0;
+    background: none;
+    padding: 0.5rem 0.5rem;
+    align-items: center;
+    height: 40px;
+  }
+  .navLinks {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100vw;
+    background-color: #181f1b;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem 0;
+    text-align: center;
+    transform: translateY(-200%);
+    transition: transform 0.3s ease-in-out;
+    z-index: 3050;
+    /* pointer-events: none; removed from here */
+  }
+  .navLinks:not(.showMenu) {
+    pointer-events: none;
+  }
+  .showMenu {
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+  body, #root, #root > div, #root > div > main {
+    padding-top: 64px !important;
+    box-sizing: border-box;
+  }
+}
+
+/* Desktop sticky navbar */
+@media (min-width: 900px) {
+  .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 16px 0 #7be49511;
+  }
+  body, #root, #root > div, #root > div > main {
+    padding-top: 76px;
+    box-sizing: border-box;
+  }
+}
+
+.why-bpm-img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.why-bpm-img img {
+  width: 170px;
+  height: 170px;
+  object-fit: cover;
+  border-radius: 1.1rem;
+  box-shadow: 0 4px 24px 0 #7be49522;
+  background: #232d28;
+  display: block;
+  margin: 0 auto;
+  transition: width 0.2s, height 0.2s, border-radius 0.2s;
+  image-rendering: auto;
+  filter: brightness(1.08) contrast(1.08) saturate(1.1);
+}
+
+@media (max-width: 900px) {
+  .why-bpm-row {
+    flex-direction: column !important;
+    gap: 1.2rem;
+    margin-bottom: 2.2rem;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    max-width: 95vw;
+    box-sizing: border-box;
+  }
+  .why-bpm-img,
+  .why-bpm-img.why-bpm-left,
+  .why-bpm-img.why-bpm-right {
+    order: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 0.5rem;
+    box-sizing: border-box;
+  }
+  .why-bpm-text {
+    order: 1;
+    width: 100%;
+    text-align: center;
+    box-sizing: border-box;
+  }
+  .why-bpm-img img {
+    width: 100%;
+    max-width: 340px;
+    height: 180px;
+    margin-bottom: 0.7rem;
+    border-radius: 1.2rem;
+    image-rendering: crisp-edges;
+    filter: brightness(1.12) contrast(1.12) saturate(1.15);
+    border: 3px solid #7be495;
+    object-fit: cover;
+    display: block;
+    box-sizing: border-box;
+  }
+}
