@@ -1,6 +1,7 @@
 import { useI18n } from '../i18n';
 import MissionVision from '../components/About/MissionVision';
 import TeamSection from '../components/About/TeamSection';
+import './AboutSections.css';
 
 const AboutPage = () => {
   const { t } = useI18n();
