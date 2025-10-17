@@ -1,13 +1,207 @@
 <!doctype html>
-<html lang="en">
+
+<html lang="bs">
   <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + React + TS</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>BPM RED Academy | HumAI — Base of Psychophysical Might</title>
+    <meta name="description" content="BPM RED Academy • HumAI — Human‑centred, military‑grade performance & health orchestration. Enter the Human‑GPU era." /><!-- Open Graph / Twitter -->
+<meta property="og:title" content="BPM RED Academy | HumAI" />
+<meta property="og:description" content="Human‑centred, military‑grade performance & health orchestration. Enter the Human‑GPU era." />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="/og.jpg" />
+<meta property="og:url" content="https://bpm.ba" />
+<meta name="twitter:card" content="summary_large_image" />
+
+<!-- Tailwind Play CDN (ultra‑fast) -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          bpm: {
+            bg: '#07080C',        // near‑black
+            primary: '#D80F2F',   // BPM RED (accent)
+            neon: '#6BE8FF',      // futuristic cyan
+            slate: '#9AA4B2'
+          }
+        },
+        fontFamily: {
+          sans: ["Inter", "ui-sans-serif", "system-ui", "-apple-system", "Segoe UI", "Roboto"]
+        },
+        boxShadow: {
+          glow: '0 0 40px rgba(216, 15, 47, 0.35)'
+        },
+        animation: {
+          float: 'float 8s ease-in-out infinite',
+          pulseSlow: 'pulse 4s ease-in-out infinite',
+          scan: 'scan 6s linear infinite'
+        },
+        keyframes: {
+          float: {
+            '0%, 100%': { transform: 'translateY(0)' },
+            '50%': { transform: 'translateY(-10px)' }
+          },
+          scan: {
+            '0%': { transform: 'translateY(-100%)' },
+            '100%': { transform: 'translateY(100%)' }
+          }
+        }
+      }
+    }
+  }
+</script>
+
+<style>
+  /* Subtle grid + vignette background */
+  .bg-grid {
+    background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.06) 1px, transparent 0);
+    background-size: 24px 24px;
+  }
+  .vignette {
+    box-shadow: inset 0 0 200px rgba(0,0,0,0.8);
+  }
+  /* Soft scanline sweep */
+  .scanner::after {
+    content: "";
+    position: absolute; inset: 0; pointer-events: none;
+    background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,0.12) 50%, rgba(255,255,255,0) 100%);
+    mix-blend-mode: overlay;
+    animation: scan 7s linear infinite;
+  }
+  /* Neon underline */
+  .neon-underline { box-shadow: 0 2px 0 0 #6BE8FF inset; }
+</style>
+
   </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
+  <body class="min-h-screen bg-bpm-bg text-white antialiased selection:bg-bpm-primary/40">
+    <!-- HERO -->
+    <section class="relative overflow-hidden">
+      <div class="absolute -inset-x-40 -top-40 h-[480px] blur-3xl opacity-40" aria-hidden>
+        <div class="w-[900px] h-[900px] mx-auto rounded-full bg-gradient-to-tr from-bpm-primary via-fuchsia-600 to-bpm-neon animate-pulseSlow"></div>
+      </div>
+      <div class="relative z-10 bg-grid vignette">
+        <nav class="container mx-auto flex items-center justify-between px-6 py-6">
+          <div class="flex items-center gap-3">
+            <div class="h-9 w-9 rounded-xl bg-bpm-primary/90 shadow-glow grid place-items-center">
+              <span class="text-xs font-bold">BPM</span>
+            </div>
+            <div class="leading-tight">
+              <p class="text-sm uppercase tracking-widest text-bpm-slate">BPM RED Academy</p>
+              <p class="text-xs text-bpm-slate">HumAI • Human‑GPU Era</p>
+            </div>
+          </div>
+          <div class="hidden md:flex items-center gap-6 text-sm text-bpm-slate">
+            <a class="hover:text-white" href="#vision">Vision</a>
+            <a class="hover:text-white" href="#protocols">Protocols</a>
+            <a class="hover:text-white" href="#contact">Contact</a>
+          </div>
+        </nav><div class="container mx-auto px-6 pt-16 pb-24 lg:pt-24 lg:pb-40">
+      <div class="max-w-3xl">
+        <span class="inline-flex items-center text-xs uppercase tracking-[0.25em] text-bpm-slate/80 mb-5">
+          <span class="h-2 w-2 rounded-full bg-bpm-primary mr-2 animate-ping"></span>
+          Pre‑launch live
+        </span>
+        <h1 class="text-4xl sm:text-6xl font-bold leading-[1.05]">
+          Human‑centred, <span class="text-bpm-primary">military‑grade</span>
+          orchestration for performance, health & readiness.
+        </h1>
+        <p class="mt-6 text-lg text-bpm-slate max-w-2xl">
+          HumAI™ digital‑twin engine • Real‑time triage & protocols • Effort‑based credentialing • Built on NVIDIA & open standards. Enter the Human‑GPU era.
+        </p>
+
+        <form id="lead" class="mt-10 flex flex-col sm:flex-row gap-3 max-w-xl" action="https://formspree.io/f/xyyypseudo" method="POST">
+          <input required name="email" type="email" placeholder="Vaš email" class="flex-1 rounded-2xl bg-white/5 border border-white/10 px-4 py-3 outline-none focus:border-bpm-neon/60" />
+          <button class="rounded-2xl bg-bpm-primary px-6 py-3 font-semibold shadow-glow hover:bg-bpm-primary/90 transition">Pristupi pre‑launchu</button>
+        </form>
+
+        <div class="mt-6 text-xs text-bpm-slate">
+          Klikom prihvatate obradu podataka u svrhu kontaktiranja i obavještenja o BPM RED Academy.
+        </div>
+      </div>
+
+      <!-- 3D-ish chip card -->
+      <div class="relative mt-16">
+        <div class="absolute -inset-8 bg-gradient-to-br from-bpm-primary/20 via-transparent to-bpm-neon/20 rounded-3xl blur-xl" aria-hidden></div>
+        <div class="relative rounded-3xl border border-white/10 bg-white/5 p-6 md:p-8 backdrop-blur-xl scanner">
+          <div class="grid md:grid-cols-3 gap-6">
+            <div class="rounded-2xl border border-white/10 p-5 bg-black/30">
+              <p class="text-sm text-bpm-slate">Protocol Engine</p>
+              <h3 class="mt-2 text-xl font-semibold">HumAI Orchestration</h3>
+              <p class="mt-2 text-sm text-bpm-slate">BPMN‑driven loops, triage, tracking & alerts — optimized for human performance.</p>
+            </div>
+            <div class="rounded-2xl border border-white/10 p-5 bg-black/30">
+              <p class="text-sm text-bpm-slate">Readiness</p>
+              <h3 class="mt-2 text-xl font-semibold">Military‑grade</h3>
+              <p class="mt-2 text-sm text-bpm-slate">From health recovery to athlete prep and DEA‑level standards — one unified stack.</p>
+            </div>
+            <div class="rounded-2xl border border-white/10 p-5 bg-black/30">
+              <p class="text-sm text-bpm-slate">Creds</p>
+              <h3 class="mt-2 text-xl font-semibold">Effort‑based</h3>
+              <p class="mt-2 text-sm text-bpm-slate">Objective, track‑verified progression with portable credentials.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTIONS -->
+<section id="vision" class="container mx-auto px-6 py-16">
+  <div class="max-w-3xl">
+    <h2 class="text-2xl font-semibold neon-underline inline-block">Vizija</h2>
+    <p class="mt-4 text-bpm-slate">HumAI povezuje stvarne podatke, protokole i ljude kroz elegantnu orkestraciju. Naš cilj je pouzdan, mjerljiv i etičan napredak čovjeka u Human‑GPU eri.</p>
+  </div>
+</section>
+
+<section id="protocols" class="container mx-auto px-6 pb-20">
+  <div class="grid lg:grid-cols-3 gap-6">
+    <div class="rounded-2xl border border-white/10 p-6 bg-white/5">
+      <h3 class="text-lg font-semibold">Health & Recovery</h3>
+      <p class="mt-2 text-bpm-slate text-sm">Oncology Recovery, Cervical Repair Protocol, HRV & Sleep Reboot.</p>
+    </div>
+    <div class="rounded-2xl border border-white/10 p-6 bg-white/5">
+      <h3 class="text-lg font-semibold">Athlete & Military</h3>
+      <p class="mt-2 text-bpm-slate text-sm">BPM RED Academy, Achieving DEA Standards, real‑time readiness.</p>
+    </div>
+    <div class="rounded-2xl border border-white/10 p-6 bg-white/5">
+      <h3 class="text-lg font-semibold">Finance & Security</h3>
+      <p class="mt-2 text-bpm-slate text-sm">FinC2E & NEMO — compliance, risk & investigative digital‑twins.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="border-t border-white/10 bg-white/5">
+  <div class="container mx-auto px-6 py-14">
+    <div class="grid md:grid-cols-2 gap-10 items-center">
+      <div>
+        <h2 class="text-2xl font-semibold">Kontakt</h2>
+        <p class="mt-3 text-bpm-slate">Za partnerstva, pilot projekte i pristup ranim modulima.</p>
+        <ul class="mt-5 space-y-2 text-sm text-bpm-slate">
+          <li>✉️ <a class="underline hover:text-white" href="mailto:hello@bpm.ba">hello@bpm.ba</a></li>
+          <li>🌐 <span class="text-bpm-slate">bpm.ba</span></li>
+        </ul>
+      </div>
+      <form class="rounded-2xl border border-white/10 p-6 bg-black/30" action="https://formspree.io/f/xyyypseudo" method="POST">
+        <div class="grid sm:grid-cols-2 gap-3">
+          <input required name="name" placeholder="Ime i prezime" class="rounded-xl bg-white/5 border border-white/10 px-4 py-3" />
+          <input required name="email" type="email" placeholder="Email" class="rounded-xl bg-white/5 border border-white/10 px-4 py-3" />
+        </div>
+        <textarea name="message" placeholder="Poruka" class="mt-3 w-full rounded-xl bg-white/5 border border-white/10 px-4 py-3 h-28"></textarea>
+        <button class="mt-4 w-full rounded-xl bg-bpm-primary px-6 py-3 font-semibold shadow-glow hover:bg-bpm-primary/90 transition">Pošalji</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer class="text-center text-xs text-bpm-slate py-8">
+  © <span id="y"></span> BPM — Baza Psihofizičke Moći • HumAI • All rights reserved.
+</footer>
+
+<script>document.getElementById('y').textContent = new Date().getFullYear()</script>
+
   </body>
 </html>
